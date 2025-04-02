@@ -65,7 +65,7 @@
     <div class="register-main">
         <div class="container-register">
             <div class="login_topic">
-                <img src="../Assest/images/registerImg.png" alt="">
+                <img src="../Assest/images/regBoard1-removebg-preview.png" alt="">
             </div>
             <form method="post" action="../Controllers/registerHandler.php">
                 <div class="mb-3">

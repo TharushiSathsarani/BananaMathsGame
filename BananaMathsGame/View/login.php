@@ -62,7 +62,7 @@
     <div class="login-main">
         <div class="container-login">
             <div class="login_topic">
-                <img src="../Assest/images/loginImg.png" alt="">
+                <img src="../Assest/images/loingboard1-removebg-preview.png" alt="">
             </div>
             <form method="post" action="../Controllers/loginHandler.php">
                 <div class="mb-3">

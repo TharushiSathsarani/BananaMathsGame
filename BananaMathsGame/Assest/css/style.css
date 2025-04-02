@@ -68,37 +68,63 @@ html {
 
 .main h1{
     font-size: 72px;
-    color: white;
+    color: rgb(255, 255, 255);
     margin-bottom: 6vh;
     margin-right: 5vw;
     font-family: cursive;
     font-style: italic;
     letter-spacing: 5px;
+    text-shadow: 3px 3px 5px #090505;
 }
 
-.main img{
-    width: 10vw;margin-bottom: 8vh;
-    margin-right: 5vw;
-}
 
-.main img:hover{
-    transform: scale(1.2);
-    transition: 500ms;
+
+
+.main-banana {
+    width: 7vw;
+    position: relative;
+    top: -155%;
+    left: 180px;
+    transform: scale(1); /* Start at normal size */
+    transition: transform 500ms ease-in-out;
     cursor: pointer;
 }
+
+.main-banana:hover {
+    transform: scale(1.2); /* Increase size on hover */
+}
+
+
 .board-container {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px; /* Move it down */
+    margin-top: 100px; /* Move it down */
     margin-left: -50px; /* Move it left */
 }
 
 .monkey-board {
-    width: 400px; /* Adjust size */
+    width: 600px; /* Adjust size */
     height: auto;
 }
+
+.game-title {
+    position: absolute;
+    top: 50%; /* Move text to center */
+    left: 50%;
+    transform: translate(-30%, -70%); /* Perfect centering */
+    color: black;
+    font-size: 50px;
+    text-align: center;
+    width: 80%; /* Adjust width */
+    text-shadow: 3px 3px 5px #fff;
+}
+
+
+
+
+
 
 /*===============================================================Page 02==================================================================*/
 .container-rule1{
@@ -112,70 +138,93 @@ html {
     overflow: hidden;
 }
 
-.rule1-box1{
-    height: 75%;
-    width: 70%;
-    background-color: #FFFFFF;
-    border: 15px solid #0DF725;
-    border-radius: 25px;
+
+
+.rule1-box1 {
+    width: 85vw; /* Fixed width */
+    height: 70vh; /* Fixed height */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    position: absolute;
+    top: 50%;
+    right:-35%;
+    transform: translate(-50%, -50%); /* Center the box */
+    overflow: hidden; /* Prevent content overflow */
 }
 
-.rule1-box1 h1{
-    font-size: 62px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    color: rgb(136, 3, 3);
+/* Set the background image as an actual img element */
+.rule1-box1::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url("../images/cute-monkey-with-wooden-sign-board.png") no-repeat center center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%; /* Force image to fit */
+    z-index: -1; /* Keep it behind the content */
+    
 }
 
-.rule1-inside{
+/* Inner box should fit properly inside */
+.rule1-inside {
     background-color: #FFF7F7;
-    width: 80%;
-    height: 50%;
-    margin-top: 5vh;
-    border: 10px solid #FFF065;
-    border-radius: 25px;
+    width: 50%;
+    height: 45%;
+    border: 8px solid #FFF065;
+    border-radius: 20px;
     display: flex;
     flex-direction: column;
-    align-items: start;
-    justify-content: start;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-right:-60vh;
+    padding: 2vh;
+    z-index: 1;
 }
 
-.rule1-inside h1{
-    font-size: 42px;
-    margin-left: 2vw;
-    margin-top: 2vh;
+.rule1-box1 h1 {
+    font-size: 48px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: rgb(136, 3, 3);
+    margin-top: -5vh; /* Adjust if needed */
+    margin-right:-60vh;
+}
+
+.rule1-inside h1 {
+    font-size: 36px;
     color: #D90000;
 }
 
-.rule1-inside p{
-    margin-top: 4vh;
-    margin-left: 2vw;
-    font-size: 30px;
-    line-height: 45px;
+.rule1-inside p {
+    font-size: 26px;
+    line-height: 38px;
     font-weight: 550;
 }
 
-.rule1-box1 img{
+/* Banana Icon */
+.rule1-box1 img {
     width: 5vw;
-    margin-top: 2vh;
-    margin-left: 55vw;
+    position: absolute;
+    bottom: 10%;
+    right: 7%;
 }
 
-.rule1-box1 img:hover{
+.rule1-box1 img:hover {
     transform: scale(1.3);
     transition: 500ms;
     cursor: pointer;
 }
+
+
 
 /*============================================================Page 03===================================================================*/
 .container-rule2{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url("../images/slotopaint-gamedesign-background-1.jpg");
+    background-image: url("../images/background.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
@@ -187,7 +236,7 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url("../images/slotopaint-gamedesign-wild-jungle-background.jpg");
+   background-image: url("../images/background.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
@@ -195,39 +244,141 @@ html {
 }
 
 /*================================================================Start up===================================================================*/
-.start-up{
+/* Full-page layout */
+.start-up {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    background-image: url("../images/alex-cruz-snakedetail-clay.jpg");
+   background-image: url("../images/background.jpg");
+    background-repeat: no-repeat;
     background-size: cover;
+    height: 100vh;
+    overflow: hidden;
 }
 
-.wish{
-    background-color: #254605;
-    border-radius: 25px;
+/* BEST OF LUCK Box */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.wish h1{
-    font-size: 85px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    color: white;
-    padding: 20px;
+.wish {
+    padding: 25px 60px;
+    animation: fadeIn 1.2s ease-in-out forwards; /* Use 'forwards' to keep final state */
+    position: absolute;
+    top: 30%;
+    width: 600px;  /* Set a fixed width */
+    height: 170px; /* Set a fixed height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
-.start-up img{
-    margin-top: 25vh;
-    width: 300px;
-    margin-left: 120%;
+
+.wish::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url("../images/EMPTYBOARD.png") no-repeat center center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%; /* Force image to fit */
+    z-index: -1; /* Keep it behind the content */
+    
 }
 
-.start-up img:hover{
-    transform: scale(1.3);
-    transition: 500ms;
+/* Text inside .wish */
+.wish h1 {
+    font-family: 'Bangers', cursive;
+    font-size: 80px;
+    color: #000000; /* Fire orange */
+    text-transform: uppercase;
+    text-shadow: 0 0 5px #bbff47, 0 0 10px #77ff00, 0 0 20px #008b19;
+    animation: fireGlow 1s infinite alternate;
+}
+
+/* Girl Monkey Image */
+.monkey {
+    width: 250px;
+    height: 250px;
+    background-image: url("../images/girl_monkey-removebg-preview.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    top: 60%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    animation: bounce 1.5s infinite ease-in-out;
+}
+
+/* Play Button (Now Bouncing) */
+.start-up a {
+    display: flex;
+    justify-content: center;
+
+}
+
+.start-up img {
+    width: 220px;
+    position: absolute;
+    top: 70%;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    animation: bounce 1.5s infinite ease-in-out; /* Added Bounce Animation */
+}
+
+.start-up img:hover {
+    transform: scale(1.2);
+    opacity: 0.8;
     cursor: pointer;
 }
+@keyframes fireGlow {
+    0% { text-shadow: 0 0 5px #bbff47, 0 0 10px #77ff00, 0 0 20px #008b19; }
+    10% { text-shadow: 0 0 15px #47fffc, 0 0 25px #00a6ff, 0 0 35px #003a8b; }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .wish h1 {
+        font-size: 60px;
+    }
+    .start-up img {
+        width: 160px;
+    }
+    .monkey {
+        width: 180px;
+        height: 180px;
+    }
+}
+
 
 
 /*============================================================Login Page==============================================================*/
@@ -236,29 +387,30 @@ html {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-image: url("../images/pngtree-cartoon-game-interface-forest-jungle-picture-image_1821010.jpg");
+    background-image: url("../images/logback2.jpg");
     background-size: cover;
 }
 
-.container-login{
+.container-login {
     height: 70%;
     width: 70%;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #fff8cb;
-    border: 9px solid rgb(52, 242, 0);
+    background-color: rgba(255, 248, 203, 0.8); /* 80% opacity */
+    border: 9px solid rgb(239, 172, 4);
     gap: 15vw;
     border-radius: 25px;
 }
+
 
 .login_topic img{
     width: 400px;
 }
 
 .container-login button{
-    background-color: #008f0e;
+    background-color: rgb(189, 124, 12);
     border: none;
     width: 10vw;
 }
@@ -275,7 +427,7 @@ html {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-image: url("../images/slotopaint-gamedesign-wild-jungle-background.jpg");
+    background-image: url("../images/logback2.jpg");
     background-size: cover;
 }
 
@@ -286,14 +438,14 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #fff8cb;
-    border: 9px solid rgb(52, 242, 0);
+    background-color: rgba(255, 248, 203, 0.8); /* 80% opacity */
+    border: 9px solid rgb(239, 172, 4);
     gap: 10vw;
     border-radius: 25px;
 }
 
 .container-register button{
-    background-color: #008f0e;
+    background-color: rgb(189, 124, 12);
     border: none;
     width: 10vw;
 }
@@ -307,11 +459,11 @@ html {
 
 .mb-3 a{
     text-decoration: none;
-    color: #008f0e;
+    color: rgb(189, 124, 12);
 }
 
 
-/*==================================================================Game GUI===============================================================*/
+/*==================================================================Game GUI===============================================================
 .container-GUI{
     background-image: url("../images/jungle.gif");
     height: 100vh;
@@ -408,57 +560,135 @@ html {
     margin-top: 10px;
     color: rgb(0, 0, 0);
     font-weight: 700;
-}
-
-/*==============================================================Game Over==================================================*/
-.container-over{
+}*/
+.container-GUI {
+    height: 100vh;
+    background: url("../images/jungle.gif") no-repeat center center/cover;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    background-image: url("../images/gameover.gif");
-    height: 100vh;
-    background-size: cover;
+    justify-content: flex-end; /* Moves everything lower */
+    position: relative;
+    padding-bottom: 5vh; /* Extra space at the bottom */
 }
 
-.gemeover-img{
+.score {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 12%;
+    width: 90%;
+    background: #8f5e1e;
+    border-radius: 20px;
+    padding: 10px 20px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.score-live h1 {
+    font-size: 38px;
+    color: white;
+    font-family: "Comic Sans MS", cursive;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.hearts {
     display: flex;
     justify-content: center;
+}
+
+.hearts img {
+    width: 45px;
+}
+
+/* Timer in a fun animated style */
+.timer {
+    background: #ffcc00;
+    color: black;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    font-family: "Comic Sans MS", cursive;
+    animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.1);
+    }
+}
+
+.game {
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    height: 10%;
+    justify-content: center;
+    height: 65%;
+    width: 75%;
+    background: #ffb703;
+    border: 8px solid #8f5e1e;
+    border-radius: 30px;
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.answer {
     width: 60%;
-    background-color: #b8a97f;
-    height: 70%;
-    width: 100%;
-    border-radius: 25px;
-    border: solid 5px black;
-}
-
-.over-button{
+    height: 12vh;
+    background: #f4a261;
+    border: 4px solid #8f5e1e;
+    border-radius: 20px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
-    flex-direction: row;
-    margin-top: 12px;
-    width: 100%;
-    height: 20%;
-    border-radius: 25px;
+    margin-top: 20px;
 }
 
-.return:hover{
-    transform: scale(1.1);
-    transition: 100ms;
+.answer label {
+    color: white;
+    font-size: 36px;
+    font-weight: bold;
+    font-family: "Comic Sans MS", cursive;
 }
 
-.home:hover{
-    transform: scale(1.1);
-    transition: 100ms;
+.answer input {
+    width: 4vw;
+    height: 6vh;
+    font-size: 28px;
+    text-align: center;
+    border-radius: 12px;
+    border: 2px solid #8f5e1e;
+    background: #e9c46a;
+    color: black;
 }
 
-.quit:hover{
-    transform: scale(1.1);
-    transition: 100ms;
+.answer button {
+    width: 10vw;
+    height: 6vh;
+    font-size: 22px;
+    border-radius: 15px;
+    background: #2a9d8f;
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
 }
+
+.answer button:hover {
+    background: #219c78;
+    transform: scale(1.05);
+}
+
+#note {
+    font-size: 26px;
+    margin-top: 10px;
+    color: black;
+    font-weight: bold;
+}
+
 
 /*============================================================Score Board==================================================================*/
 .score-container{

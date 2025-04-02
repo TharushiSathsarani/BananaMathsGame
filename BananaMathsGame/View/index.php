@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -56,13 +55,13 @@
     </div>
     <div class="main">
     <div class="board-container">
-            <img src="image/mokeyindex.png" alt="" class="monkey-board">
-            <h2 class="game-title">MONKEY <br> MATHS</h2>
-        
+            <img class="monkey-board" src="../Assest/images/mokeyindex.png" alt="" class="monkey-board main img ">
+            <h2 class="game-title hidden">MONKEY <br> MATHS</h2>
+            </div>
 
-        <h1 class="hidden">CHALLENGES</h1>
-
-        <a href="firstRule.php"><img class="right" src="../Assest/images/banana.png" alt=""></a>
+        <h1 class="hidden">PLAY</h1>
+        <div>
+        <a href="firstRule.php"><img class="main-banana main-banana:hover right" src="../Assest/images/banana.png" alt=""></a>
         </div>
     </div>
 
