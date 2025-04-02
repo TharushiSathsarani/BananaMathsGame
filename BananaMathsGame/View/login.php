@@ -66,7 +66,7 @@
             </div>
             <form method="post" action="../Controllers/loginHandler.php">
                 <div class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label">Email address</label>
+                  <label for="exampleInputEmail1" class="form-label">Email Address</label>
                   <input type="email" class="form-control" id="exampleInputEmail1" name="exampleInputEmail1" aria-describedby="emailHelp">
                 </div>
 
