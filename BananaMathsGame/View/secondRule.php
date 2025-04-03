@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Assest/css/style.css">
-    <title>Snake Challenges Rules</title>
+    <title>Banana Maths Game Rules</title>
 
     <script>
         const musicSound = new Audio('../Assest/music/music.mp3');

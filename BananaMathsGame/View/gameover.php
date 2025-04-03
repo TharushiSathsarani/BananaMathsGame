@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Assest/css/style.css">
-    <title>Snake Challenges</title>
+    <title>Game Over</title>
     <script>
 
         const musicSound = new Audio('../Assest/music/music.mp3');
@@ -82,7 +82,7 @@
     <div class="container-over">
         <div class="gameover-wrap">
             <div class="gemeover-img">
-                <img src="../Assest/images/pixel-game-over-text-image-for-assets-vector-38187365-removebg-preview.png" alt="">
+                <img src="../Assest/images/GAME_OVER-removebg-preview-removebg-preview.png" alt="">
             </div>
 
             <div class="over-button">

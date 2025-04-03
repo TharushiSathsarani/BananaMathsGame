@@ -8,56 +8,76 @@
     $hearts = ['../Assest/images/heart.png','../Assest/images/heart.png','../Assest/images/heart.png'];
 ?>
 
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Snake Challenges</title>
+    <title>Main Banana Maths Game</title>
     <link rel="stylesheet" href="../Assest/css/style.css">
 </head>
-
 <body id="fullscreenElement">
-    <div class="full-screen">
-        <img src="../Assest/images/fullscreen.png" alt="" onclick="Fullscreen()">
+
+    <!-- Fullscreen and Music Controls -->
+    <div class="controls">
+        <div class="full-screen">
+            <img src="../Assest/images/fullscreen.png" alt="Fullscreen" onclick="Fullscreen()">
+        </div>
+        <div class="music">
+            <img id="play" src="../Assest/images/sounds.png" alt="Sound" onclick="pauseMusic()">
+        </div>
     </div>
 
-    <div class="music">
-        <img id="play" src="../Assest/images/sounds.png" alt="" onclick="pauseMusic()">
-    </div>
-    
+    <!-- Game Container -->
     <div class="container-GUI">
-        <div class="score">
+        
+        <!-- Sidebar -->
+        <div class="sidebar">
             <div class="score-live">
-                <h1>Score : <span id="score">0</span></h1>
+                <h1>Score: <span id="score">0</span></h1>
             </div>
+
             <div class="level">
-                <h1>Level : <span id="level">1</span></h1>
+                <h1>Level: <span id="level">1</span></h1>
             </div>
+
             <div class="hearts">
                 <?php
-                    for ($i = 0; $i < count($hearts); $i++) {
-                        echo '<img src="' . $hearts[$i] . '" alt="Heart" id="heart' . $i . '">';
+                    if (isset($hearts) && is_array($hearts)) {
+                        foreach ($hearts as $index => $heart) {
+                            echo '<img src="' . htmlspecialchars($heart) . '" alt="Heart" id="heart' . $index . '">';
+                        }
                     }
                 ?>
             </div>
+            
             <div class="timer">
-                <h1>Time : <span id="timer">30</span> s</h1>
+                <h1 id="timerText">Time: <span id="timer">30</span>s</h1>
+                <div class="progress-container">
+                     <div class="progress-bar" id="progressBar"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Game Section -->
+        <div class="game-container">
+            <div class="game">
+                <img src="" alt="Questions" id="imgApi">
+            </div>
+
+            <!-- Answer Section -->
+            <div class="answer">
+                <label for="answer">Answer:</label>
+                <input type="text" id="answer" placeholder="Enter">
+                <button type="button" onclick="handleInput()">Submit</button>
             </div>
         </div>
 
-        <div class="game">
-            <img src="" alt="Questions" id="imgApi">
-        </div>
-
-        <div class="answer">
-            <label for="answer">Answer : </label>
-            <input type="text" style="width: 100px; font-size: 20px !important;" placeholder="Enter" id="answer">
-            <button type="button" onclick="handleInput()">Submit</button>  /*compare*/
-        </div>
-
-        <div id="note"></div>
+        <!-- Ready Note -->
+        <div id="note">Ready?</div>
     </div>
+
 
     <script>
         let timeLeft;
@@ -69,6 +89,8 @@
         let maxQuestionsPerLevel;
         let solution;
         let timer;
+        let progressBar = document.getElementById("progressBar");
+
 
         const musicSound = new Audio('../Assest/music/music.mp3');
         musicSound.pause();
@@ -112,8 +134,12 @@
             document.getElementById("timer").textContent = timeLeft;
             document.getElementById("level").textContent = level;
         }
+        function updateProgressBar() {
+    let percentage = (timeLeft / timePerLevel) * 100;
+    progressBar.style.width = percentage + "%";
+}
 
-        function playSnakeGame(){
+        function PlayBananaMaths(){
             sessionStorage.setItem('previousScore', score);
             window.location.href = "monkeyCatchGame.php";
         }
@@ -204,28 +230,33 @@
         }
 
         function fetchImage() {
-            fetch('https://marcconrad.com/uob/banana/api.php')   /* Breo */
-                .then(response => response.json())
-                .then(data => {
-                    let imgApi = data.question;
-                    solution = data.solution;
-                    document.getElementById("imgApi").src = imgApi;
-                    document.getElementById("note").innerHTML = 'Ready?';
-                    clearInterval(timer);
-                    timeLeft = timePerLevel;
-                    timer = setInterval(() => {
-                        timeLeft--;
-                        document.getElementById("timer").textContent = timeLeft;
-                        if (timeLeft <= 0) {
-                            handleTimeOut();
-                        }
-                    }, 1000);
-                })
-                .catch(error => {
-                    console.error('Error fetching image from the API:', error);
-                });
-        }
+    fetch('https://marcconrad.com/uob/banana/api.php')
+        .then(response => response.json())
+        .then(data => {
+            let imgApi = data.question;
+            solution = data.solution;
+            document.getElementById("imgApi").src = imgApi;
+            document.getElementById("note").innerHTML = 'Ready?';
 
+            clearInterval(timer);
+            timeLeft = timePerLevel;  
+            document.getElementById("timer").textContent = timeLeft;
+            updateProgressBar();
+
+            timer = setInterval(() => {
+                timeLeft--;
+                document.getElementById("timer").textContent = timeLeft;
+                updateProgressBar();
+
+                if (timeLeft <= 0) {
+                    handleTimeOut();
+                }
+            }, 1000);
+        })
+        .catch(error => {
+            console.error('Error fetching image from the API:', error);
+        });
+}
         function startLevel() {
             switch(level) {
                 case 1:
