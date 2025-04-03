@@ -67,7 +67,7 @@
                 <p>When you level up, your timer will be decrease. So you need to think fast.</p>
             </div>
 
-            <a href="thirdRule.php"><img src="../Assest/images/banananext.png" alt=""></a>
+            <a href="thirdRule.php"><img src="../Assest/images/nextbanana-removebg-preview.png" alt=""></a>
         </div>
     </div>
 

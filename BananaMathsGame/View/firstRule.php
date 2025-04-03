@@ -64,7 +64,7 @@
                 <p>You need to answer for given mathematical Questions within given time period.</p>
             </div>
 
-            <a href="secondRule.php"><img src="../Assest/images/banananext.png" alt=""></a>
+            <a href="secondRule.php"><img src="../Assest/images/nextbanana-removebg-preview.png" alt=""></a>
         </div>
     </div>
 

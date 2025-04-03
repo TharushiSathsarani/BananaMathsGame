@@ -67,7 +67,7 @@
                 <p>If you didn’t able to finish your target within given time period, you must play Banana Catch Game & continue.</p>
             </div>
 
-            <a href="startUp.php"><img src="../Assest/images/banananext.png" alt=""></a>
+            <a href="startUp.php"><img src="../Assest/images/nextbanana-removebg-preview.png" alt=""></a>
         </div>
     </div>
 

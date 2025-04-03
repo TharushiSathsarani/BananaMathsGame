@@ -61,7 +61,7 @@
 
         <h1 class="hidden">PLAY</h1>
         <div>
-        <a href="firstRule.php"><img class="main-banana main-banana:hover right" src="../Assest/images/banana.png" alt=""></a>
+        <a href="firstRule.php"><img class="main-banana main-banana:hover right" src="../Assest/images/nextbanana-removebg-preview.png" alt=""></a>
         </div>
     </div>
 
